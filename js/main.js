@@ -109,7 +109,7 @@ else {
 var timeline_config = {
   width: "100%",
   height: "100%",
-  source: google_url || timeline_data,
+  source: googleUrl || timeline_data,
   //hash_bookmark: true,            //OPTIONAL
   css:  'css/timeline.css',
   js:   'js/timeline-min.js'
