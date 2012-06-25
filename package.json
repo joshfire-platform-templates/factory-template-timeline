@@ -1,0 +1,97 @@
+{
+  "name": "datavizTimeline",
+  "fullName": "Dataviz Timeline",
+  "description": "Create beautiful timelines easily.",
+  "version": "0.1.0",
+
+  "keywords": [
+    "datavizualisation",
+    "dataviz",
+    "events",
+    "timeline",
+    "time",
+    "chronological",
+    "story"
+  ],
+  "joshfire": {
+    "premium": true,
+    "prices": {
+      "all": {
+        "devices":["desktop"],
+        "onetime":{
+          "eur":49,
+          "usd":59
+        }
+      }
+    },
+    "images": {
+      "small": "",
+      "big": ""
+    },
+    "datasources": {
+      "events": {
+        "title": "Timeline events",
+        "description": "either a google spreadsheet formatted like <a href='https://docs.google.com/a/digitalartwork.net/previewtemplate?id=0AppSVxABhnltdEhzQjQ4MlpOaldjTmZLclQxQWFTOUE&mode=public'>this</a>"
+      }
+    },
+    "options": {
+      "schema": {
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "lang": {
+              "type": "string",
+              "title": "Language",
+              "enum" : [
+                "en", "fr", "es", "de", "is", "it", "nl", "kr", "pt-br", "ja", "zh-ch", "zh-tw"
+              ]
+            },
+            "font": {
+              "type": "string",
+              "title": "Font",
+              "enum": [
+                "Arvo-PTSans",
+                "Merriweather-NewsCycle",
+                "PoiretOne-Molengo",
+                "PTSerif-PTSans",
+                "DroidSerif-DroidSans",
+                "Lekton-Molengo",
+                "NixieOne-Ledger",
+                "AbrilFatface-Average",
+                "PlayfairDisplay-Muli",
+                "Rancho-Gudea",
+                "Bevan-PotanoSans",
+                "BreeSerif-OpenSans",
+                "SansitaOne-Kameron",
+                "Pacifico-Arimo"
+              ]
+            },
+            "start_at_end": {
+              "type": "boolean",
+              "title": "Start at end",
+              "description" : "If set, the timeline starts on the last event"
+            }
+          }
+        }
+      },
+      "form": [
+        "datasources.events",
+        "params.lang",
+        "params.font",
+        "params.start_at_end"
+      ]
+    },
+    "devices": [
+      {
+        "devices": "desktop",
+        "startfile": "index.html",
+        "orientation": "auto",
+        "screenshots": [
+          "",
+          ""
+        ]
+      }
+    ]
+  }
+}
