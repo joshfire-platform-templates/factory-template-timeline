@@ -40,6 +40,20 @@
           "title": "Parameters",
           "type": "object",
           "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "description": {
+              "type": "string",
+              "title": "Description",
+              "description": "this will be displayed right under the title. Some html is allowed."
+            },
+            "startDate": {
+              "type": "string",
+              "title": "Start Date",
+              "description": "This is where the timeline tick will be set on opening"
+            },
             "lang": {
               "type": "string",
               "title": "Language",
@@ -77,9 +91,18 @@
       },
       "form": [
         "datasources.events",
-        "params.lang",
-        "params.font",
-        "params.start_at_end"
+        "params.title",
+        "params.description",
+        "params.startDate",
+        {
+          "type": "fieldset",
+          "title": "Customization",
+          "items": [
+            "params.lang",
+            "params.font",
+            "params.start_at_end"
+          ]
+        }
       ]
     },
     "devices": [
