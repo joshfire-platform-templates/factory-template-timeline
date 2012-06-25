@@ -2,7 +2,7 @@
   "name": "datavizTimeline",
   "fullName": "Dataviz Timeline",
   "description": "Create beautiful timelines easily.",
-  "version": "0.1.0",
+  "version": "0.2.0",
 
   "keywords": [
     "datavizualisation",
@@ -31,7 +31,7 @@
     "datasources": {
       "events": {
         "title": "Timeline events",
-        "description": "either a google spreadsheet formatted like <a href='https://docs.google.com/a/digitalartwork.net/previewtemplate?id=0AppSVxABhnltdEhzQjQ4MlpOaldjTmZLclQxQWFTOUE&mode=public'>this</a>"
+        "description": "either a google spreadsheet formatted like <a href='https://docs.google.com/a/digitalartwork.net/previewtemplate?id=0AppSVxABhnltdEhzQjQ4MlpOaldjTmZLclQxQWFTOUE&mode=public'>this</a> or another source which outputs looks like <a href='http://timeline.verite.co/#fileformat'>this</a>"
       }
     },
     "options": {
@@ -69,8 +69,8 @@
             },
             "start_at_end": {
               "type": "boolean",
-              "title": "Start at end",
-              "description" : "If set, the timeline starts on the last event"
+              "title": "Start from the end",
+              "description" : "If set, the first item displayed is the last one"
             }
           }
         }
