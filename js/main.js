@@ -100,13 +100,14 @@ dataEvents.find({}, function(err, data){
   });
   
   /* include the formatted event_list into a TimelineJS structure */
+
   timeline_data = 
   {
     timeline : {
       headline: params.title || "Joshfire Timeline",
       type: "default",
-      startDate: params.startDate || "1988,01,01",
-      text: params.description || "Beautiful timelines",
+      startDate: params.startDate || "1,1,1994",
+      text: params.description || "aferafazef",
       "date": event_list
     }
   };
