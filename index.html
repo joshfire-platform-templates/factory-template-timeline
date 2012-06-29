@@ -6,8 +6,12 @@
   <meta charset="utf-8">
   <title>Joshfire Factory - Timeline template</title>
 
-  <script data-joshfire-bootstraped src="http://localhost:40021/bootstrap/4fe858bc5b5716a5130001ac/4fe89bc75b5716a5130007b4/desktop/"></script>
-    
+  <script data-joshfire-bootstraped src="http://localhost:40021/bootstrap/4fe858bc5b5716a5130001ac/4fec81b262df1ccb24000382/desktop/"></script>
+  
+
+  <!-- styles needed by jScrollPane -->
+  <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+
   <style>
     html, body {
       height:100%;
@@ -25,15 +29,55 @@
       -webkit-box-shadow:0 0px 0px rgba(0, 0, 0, 0.25) !important;
       box-shadow:0px 0px 0px rgba(0, 0, 0, 0.25) !important;
     }
-    
+    .slider-item{
+      overflow-x: hidden;
+    }
+    .jspHorizontalBar{
+      background-color: transparent;
+    }
+    .jspHorizontalBar .jspTrack{
+      background-color: transparent;
+    }
+    .jspHorizontalBar .jspDrag{
+      display: none;
+      background-color: transparent;
+    }
+    .jspVerticalBar{
+      background-color: transparent;
+      z-index: 1000;
+    }
+    .jspVerticalBar .jspTrack{
+      background-color: transparent;
+    }
+    .jspVerticalBar .jspDrag{
+      background-color: transparent;
+      border: 2px solid #E9E9E9;
+      border-radius: 20px;
+    }
+    .slider-item:hover .jspVerticalBar .jspDrag{
+      background-color: #E9E9E9;
+      border-radius: 20px;
+    }
+    .jspCorner{
+      display: none;
+    }
   </style>
-
 </head>
 
 <body>
 
   <div id="timeline-embed"></div>
   
+
+  
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+  <!-- the mousewheel plugin - optional to provide mousewheel support -->
+  <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+
+  <!-- the jScrollPane script -->
+  <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+
   <script type="text/javascript" src="js/underscore.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 

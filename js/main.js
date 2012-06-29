@@ -2,24 +2,6 @@ var f = Joshfire.factory;
 var params = f.config.template.options.params;
 var dataEvents = f.getDataSource("events");
 
-/* utility function to load script async */
-function loadScript(src, callback)
-{
-  var s, r;
-  r = false;
-  s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.src = src;
-  s.onload = s.onreadystatechange = function() {
-    if ( !r && (!this.readyState || this.readyState == 'complete') )
-    {
-      r = true;
-      callback();
-    }
-  };
-  document.body.appendChild(s);
-}
-
 var event_list = [], timeline_data, timeline_config;
 /* parse datasource entries into TimelineJS compatible event_list */
 dataEvents.find({}, function(err, data){
@@ -43,6 +25,8 @@ dataEvents.find({}, function(err, data){
     //don't go any further if no date could be set
     if(eventItem.startDate !== undefined){
 
+      //BlogPosting
+
       //Article. Includes datasources coming from Google preformatted spreadsheets
       if (entry["@type"] == "Article" && entry.hasOwnProperty("associatedMedia") ) {
           eventItem.asset = {};
@@ -60,15 +44,17 @@ dataEvents.find({}, function(err, data){
       }
 
       //tweets and other statuses
-      else if (entry["@type"] == "Article/Status" && entry.hasOwnProperty("author") &&
-          entry.author[0] !== undefined) {
-        if (entry.author[0].image !== undefined && entry.author[0].image.contentURL !== undefined) {
-          eventItem.asset = {};
-          eventItem.asset.media = entry.author[0].image.contentURL;
-          if (entry.author[0]["foaf:nick"] !== undefined) {
-            eventItem.asset.caption = "<a href='" + entry.author[0].url + "'>" +
-              entry.author[0]["foaf:nick"] + "</a>";
-          }
+      else if (entry["@type"] == "Article/Status") {
+        //console.log(entry);
+        eventItem.text = "";
+        eventItem.asset = {};
+        eventItem.asset.media = entry.url;
+      }
+
+      //Event
+      if (entry["@type"] == "Event" ) {
+        if(entry.hasOwnProperty("startDate")){
+          eventItem.startDate = entry.startDate;
         }
       }
 
@@ -106,8 +92,7 @@ dataEvents.find({}, function(err, data){
     timeline : {
       headline: params.title || "Joshfire Timeline",
       type: "default",
-      startDate: params.startDate || "1,1,1994",
-      text: params.description || "aferafazef",
+      text: params.description || "",
       "date": event_list
     }
   };
@@ -119,6 +104,8 @@ dataEvents.find({}, function(err, data){
     width: "100%",
     height: "100%",
     source: timeline_data,
+    font: params.font || "Bevan-PotanoSans",
+    start_at_end: params.start_at_end || false,
     //hash_bookmark: true,            //OPTIONAL
     css:  'css/timeline.css',
     js:   'js/timeline-min.js'
@@ -135,6 +122,24 @@ dataEvents.find({}, function(err, data){
     _.extend(timeline_config, {lang: params.lang});
   }
 
-  loadScript("js/timeline-embed.js", function(){});
+  $.getScript("js/timeline-embed.js", function(){
+    loadScrollbars();
+  });
 
 });
+
+var emptyIterations = 0;
+var loadScrollbars = function(){
+  var newSliders = $(".slider-item:not(.custom-scrollbar)")
+    .filter(function(){ return this.style.display == 'block'; });
+  if (newSliders.length > 0) {
+    newSliders.jScrollPane();
+    newSliders.addClass("custom-scrollbar");
+    emptyIterations = 0;
+  }
+  else {
+    emptyIterations ++;
+  }
+  if(emptyIterations < 100)
+    window.setTimeout(loadScrollbars, 2000);
+};

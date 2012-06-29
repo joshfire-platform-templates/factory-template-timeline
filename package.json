@@ -52,11 +52,6 @@
               "description": "this will be displayed right under the title. Some html is allowed.",
               "required": true
             },
-            "startDate": {
-              "type": "string",
-              "title": "Start Date",
-              "description": "This is where the timeline tick will be set on opening"
-            },
             "lang": {
               "type": "string",
               "title": "Language",
@@ -87,7 +82,7 @@
             "start_at_end": {
               "type": "boolean",
               "title": "Start from the end",
-              "description" : "If set, the first item displayed is the last one"
+              "description" : "If set, the timeline will show the most recent one on startup"
             }
           }
         }
@@ -96,7 +91,6 @@
         "datasources.events",
         "params.title",
         "params.description",
-        "params.startDate",
         {
           "type": "fieldset",
           "title": "Customization",
