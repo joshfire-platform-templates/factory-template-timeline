@@ -1,7 +1,7 @@
 {
   "name": "datavizTimeline",
   "fullName": "Dataviz Timeline",
-  "description": "Create beautiful timelines easily.",
+  "description": "This template lets you create stunning timeline vizualisations very easily. \n\n You can use as input any type of data, it just needs to provide a meaningful date. For example, if you use a Youtube datasource, your videos will be chronologically ordered on their publication date. If you want to manually enter the events, you can also use the provided google spreadsheet template (cf. config page). \n\n If you provide fully described events, with a beginning and an end date, this information will also be displayed. \n\n To illustrate your events, many type of associated medias are handled by this template : youtube, vimeo, soundcloud, dailymotion, instagram, twit pic, twitter statuses, google plus statuses, wikipedia pages or images.",
   "version": "0.3.0",
 
   "keywords": [
@@ -25,8 +25,8 @@
       }
     },
     "images": {
-      "small": "",
-      "big": ""
+      "small": "img/timeline(380-236)1a.png",
+      "big": "img/timeline(700-335)2.png"
     },
     "datasources": {
       "events": {
@@ -87,7 +87,7 @@
             "custom_scrollbar": {
               "type": "boolean",
               "title": "Custom scrollbar",
-              "description" : "Displays styled scrollbars for the content area. Useful when embedded as a widget. Be careful, this breaks window resizing !"
+              "description" : "Displays better looking scrollbars for the content areas. Useful for embedded apps. Be careful though, this will break down dynamic window resizing, and is a bit heavier than the simple version"
             }
           }
         }
@@ -114,8 +114,7 @@
         "startfile": "index.html",
         "orientation": "auto",
         "screenshots": [
-          "",
-          ""
+          "img/timeline_screenshot1.png"
         ]
       }
     ]
