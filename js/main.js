@@ -2,7 +2,7 @@ var f = Joshfire.factory;
 var params = f.config.template.options.params;
 var dataEvents = f.getDataSource("events");
 
-var googleUrl, timeline_data, timeline_config;
+var timeline_data, timeline_config;
 
 var event_list = [];
 /* parse datasource entries into TimelineJS compatible event_list */
@@ -84,7 +84,6 @@ dataEvents.find({}, function(err, data){
       }
 
       event_list.push(eventItem);
-      console.log(eventItem.startDate);
     }
   });
   
@@ -99,43 +98,41 @@ dataEvents.find({}, function(err, data){
       "date": event_list
     }
   };
-});
 
-/* initial timeline config */
-timeline_config = {
-  width: "100%",
-  height: "100%",
-  source: timeline_data,
-  font: params.font || "Bevan-PotanoSans",
-  start_at_end: params.start_at_end || false,
-  //hash_bookmark: true,            //OPTIONAL
-  css:  'css/timeline.css',
-  js:   'js/timeline-min.js'
-};
+  /* initial timeline config */
+  timeline_config = {
+    width: "100%",
+    height: "100%",
+    source: timeline_data,
+    font: params.font || "Bevan-PotanoSans",
+    start_at_end: params.start_at_end || false,
+    //hash_bookmark: true,            //OPTIONAL
+    css:  'css/timeline.css',
+    js:   'js/timeline-min.js'
+  };
 
-/* depending on the template params, extend this config */
-if(params.start_at_end !== undefined){
-  _.extend(timeline_config, {start_at_end: true});
-}
-if(params.font !== undefined){
-  _.extend(timeline_config, {font: params.font});
-}
-if(params.lang !== undefined){
-  _.extend(timeline_config, {lang: params.lang});
-}
-
-$.getScript("js/timeline-embed.js", function(){
-
-  if(params.custom_scrollbar){
-    $.getScript("js/jquery.mousewheel.js", function(){
-      $.getScript("js/jquery.jscrollpane.min.js", function(){
-        loadScrollbars();
-      });
-    });
+  /* depending on the template params, extend this config */
+  if(params.start_at_end !== undefined){
+    _.extend(timeline_config, {start_at_end: true});
+  }
+  if(params.font !== undefined){
+    _.extend(timeline_config, {font: params.font});
+  }
+  if(params.lang !== undefined){
+    _.extend(timeline_config, {lang: params.lang});
   }
 
-});
+  $.getScript("js/timeline-embed.js", function(){
 
+    if(params.custom_scrollbar){
+      $.getScript("js/jquery.mousewheel.js", function(){
+        $.getScript("js/jquery.jscrollpane.min.js", function(){
+          loadScrollbars();
+        });
+      });
+    }
+  });
+});
 
 var emptyIterations = 0;
 var loadScrollbars = function(){
