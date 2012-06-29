@@ -116,6 +116,15 @@
         "screenshots": [
           "img/timeline_screenshot1.png"
         ]
+      },
+      {
+        "devices": "tablet",
+        "startfile": "index.html",
+        "orientation": "auto",
+        "screenshots": [
+          "",
+          ""
+        ]
       }
     ]
   }
