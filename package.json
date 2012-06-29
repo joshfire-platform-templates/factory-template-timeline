@@ -31,7 +31,7 @@
     "datasources": {
       "events": {
         "title": "Timeline events",
-        "description": "Any datasource as long as its items have a date. You can also use a google spreadsheet, <span style='text-decoration:underline;'>with standard mapping</span>, formatted like <a href='https://docs.google.com/spreadsheet/pub?key=0As_8C1ajtYj-dDMzMHdZR0U1SlJRMlJXQlYyYUQ4OHc&output=html'>this</a>",
+        "description": "Any datasource as long as its items have a date. You can also use a google spreadsheet, <span style='text-decoration:underline;'>with standard mapping</span>, formatted like <a href='https://drive.google.com/previewtemplate?id=0As_8C1ajtYj-dDMzMHdZR0U1SlJRMlJXQlYyYUQ4OHc&mode=public'>this</a>",
         "required": true
       }
     },
@@ -122,8 +122,7 @@
         "startfile": "index.html",
         "orientation": "auto",
         "screenshots": [
-          "",
-          ""
+          "img/timeline_screenshot1.png"
         ]
       }
     ]
