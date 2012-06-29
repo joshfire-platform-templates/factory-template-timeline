@@ -2,7 +2,7 @@
   "name": "datavizTimeline",
   "fullName": "Dataviz Timeline",
   "description": "Create beautiful timelines easily.",
-  "version": "0.2.0",
+  "version": "0.3.0",
 
   "keywords": [
     "datavizualisation",
@@ -83,6 +83,11 @@
               "type": "boolean",
               "title": "Start from the end",
               "description" : "If set, the timeline will show the most recent one on startup"
+            },
+            "custom_scrollbar": {
+              "type": "boolean",
+              "title": "Custom scrollbar",
+              "description" : "Displays styled scrollbars for the content area. Useful when embedded as a widget. Be careful, this breaks window resizing !"
             }
           }
         }
@@ -97,7 +102,8 @@
           "items": [
             "params.lang",
             "params.font",
-            "params.start_at_end"
+            "params.start_at_end",
+            "params.custom_scrollbar"
           ]
         }
       ]
