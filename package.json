@@ -2,7 +2,7 @@
   "name": "datavizTimeline",
   "fullName": "Dataviz Timeline",
   "description": "This template lets you create stunning timeline vizualisations very easily. \n\n You can use as input any type of data, it just needs to provide a meaningful date. For example, if you use a Youtube datasource, your videos will be chronologically ordered on their publication date. If you want to manually enter the events, you can also use the provided google spreadsheet template (cf. config page). \n\n If you provide fully described events, with a beginning and an end date, this information will also be displayed. \n\n To illustrate your events, many type of associated medias are handled by this template : youtube, vimeo, soundcloud, dailymotion, instagram, twit pic, twitter statuses, google plus statuses, wikipedia pages or images.",
-  "version": "0.3.0",
+  "version": "1.1.0",
 
   "keywords": [
     "datavizualisation",
@@ -25,8 +25,8 @@
       }
     },
     "images": {
-      "small": "img/timeline(380-236)1a.png",
-      "big": "img/timeline(700-335)2.png"
+      "small": "img/timeline(380-236)-1.png",
+      "big": "img/timeline(700-335).png"
     },
     "datasources": {
       "events": {
@@ -112,7 +112,7 @@
       {
         "devices": "desktop",
         "startfile": "index.html",
-        "orientation": "auto",
+        "images": "img/timeline(380-236)-3.png",
         "screenshots": [
           "img/timeline_screenshot1.png"
         ]
@@ -120,7 +120,7 @@
       {
         "devices": "tablet",
         "startfile": "index.html",
-        "orientation": "auto",
+        "images": "img/timeline(380-236)-2.png",
         "screenshots": [
           "img/timeline_screenshot1.png"
         ]
