@@ -14,16 +14,6 @@
     "story"
   ],
   "joshfire": {
-    "premium": true,
-    "prices": {
-      "all": {
-        "devices":["desktop"],
-        "onetime":{
-          "eur":49,
-          "usd":59
-        }
-      }
-    },
     "images": {
       "small": "img/timeline(380-236)-1.png",
       "big": "img/timeline(700-335).png"
