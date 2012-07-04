@@ -31,26 +31,32 @@ dataEvents.find({}, function(err, data){
 
       //Article. Includes datasources coming from Google preformatted spreadsheets
       if (entry["@type"] == "Article" && entry.hasOwnProperty("associatedMedia") ) {
-          eventItem.asset = {};
-          if(entry.associatedMedia.hasOwnProperty("url")){
-            eventItem.asset.media = entry.associatedMedia.url;
-          }
-          if(entry.associatedMedia.hasOwnProperty("name")){
-            eventItem.asset.caption = entry.associatedMedia.name;
-          }
-          if(entry.associatedMedia.hasOwnProperty("author") && 
-            entry.associatedMedia.author.hasOwnProperty("name"))
-          {
-            eventItem.asset.credit = entry.associatedMedia.author.name;
-          }
+        eventItem.asset = {};
+        if(entry.associatedMedia.hasOwnProperty("url")){
+          eventItem.asset.media = entry.associatedMedia.url;
+        }
+        if(entry.associatedMedia.hasOwnProperty("name")){
+          eventItem.asset.caption = entry.associatedMedia.name;
+        }
+        if(entry.associatedMedia.hasOwnProperty("author") && 
+          entry.associatedMedia.author.hasOwnProperty("name"))
+        {
+          eventItem.asset.credit = entry.associatedMedia.author.name;
+        }
       }
 
       //tweets and other statuses
-      else if (entry["@type"] == "Article/Status") {
-        //console.log(entry);
-        eventItem.text = "";
-        eventItem.asset = {};
-        eventItem.asset.media = entry.url;
+      else if (entry["@type"] == "Article/Status" &&
+        entry.hasOwnProperty("author") && entry.author[0] !== undefined) 
+      {
+        if (entry.author[0].image !== undefined && entry.author[0].image.contentURL !== undefined) {
+          eventItem.asset = {};
+          eventItem.asset.media = entry.author[0].image.contentURL;
+          if (entry.author[0]["foaf:nick"] !== undefined) {
+            eventItem.asset.caption = "<a href='" + entry.author[0].url + "'>" +
+              "@" + entry.author[0]["foaf:nick"] + "</a>";
+          }
+        }
       }
 
       //Event
@@ -108,7 +114,7 @@ dataEvents.find({}, function(err, data){
     start_at_end: params.start_at_end || false,
     //hash_bookmark: true,            //OPTIONAL
     css:  'css/timeline.css',
-    js:   'js/timeline-min.js'
+    js:   'js/timeline-modified.min.js'
   };
 
   /* depending on the template params, extend this config */
