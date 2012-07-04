@@ -3610,7 +3610,7 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaType == 'undefined') {
 			media.type = "twitter-ready";
 		    media.id = d;
 		    success = true;
-		} else if (d.match('(www.)?youtube|youtu\.be')) {
+		} else if (d.match('(www.)?youtube|youtu\.be') && !d.match("img.youtube")) {
 			if (d.match('v=')) {
 				media.id = VMM.Util.getUrlVars(d)["v"];
 			} else if (d.match('\/embed\/')) {
